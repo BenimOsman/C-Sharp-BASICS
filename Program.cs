@@ -60,6 +60,48 @@ static void PersonDetails()
 StudentDatabase studentDb = new StudentDatabase();
 studentDb.DisplayStudentMarks();
 
+// 2-Dimensional Array Example
+TwoDimensionalArrayDemo();
+
+static void TwoDimensionalArrayDemo()
+{
+    int[,] twoDimensionalArray = new int[3, 3]
+    {
+    { 1, 2, 3 },
+    { 4, 5, 6 },
+    { 7, 8, 9 }
+    };
+
+    for (int i = 0; i < twoDimensionalArray.GetLength(0); i++)
+    {
+        for (int j = 0; j < twoDimensionalArray.GetLength(1); j++)
+        {
+            Console.Write(twoDimensionalArray[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+// Jagged Array
+JaggedMethod();
+
+static void JaggedMethod()
+{
+    int[][] jaggedArray = new int[3][];
+    jaggedArray[0] = new int[] { 1, 2, 3 };
+    jaggedArray[1] = new int[] { 4, 5, 6, 7 };
+    jaggedArray[2] = new int[] { 8, 9 };
+    Console.WriteLine("\nJagged Array Example:");
+    foreach (var array in jaggedArray)
+    {
+        foreach (var item in array)
+        {
+            Console.Write(item + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
 // int result = Calculator();
 // Console.WriteLine($"RESULT: {result}");
 

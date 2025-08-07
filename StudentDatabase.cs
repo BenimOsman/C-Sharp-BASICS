@@ -22,7 +22,7 @@ namespace BASIC
                 total = total + marks[i];
             }
 
-            double average = (double)total / marks.Length();
+            double average = (double)total / 5;
 
             Console.WriteLine("\nSubject Marks:");
             for (int i = 0; i < 5; i++)
