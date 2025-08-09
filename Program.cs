@@ -417,9 +417,220 @@ namespace BASIC
 }
 */
 
-EmployeeDemoProgram();
+// Console.WriteLine(int.MinValue + " " + int.MaxValue);
+// Console.WriteLine(long.MinValue + " " + int.MaxValue);
+// Console.WriteLine(float.MinValue + " " + int.MaxValue);
+// Console.WriteLine(double.MinValue + " " + int.MaxValue);
+// Console.WriteLine(decimal.MinValue + " " + int.MaxValue);
+// Console.WriteLine(char.MinValue + " " + char.MaxValue);
+// Console.WriteLine(bool.FalseString + " " + bool.TrueString);
+
+// EmployeeDemoProgram();
+
+/*
 static void EmployeeDemoProgram()
 {
     EmployeeDemo employeeDemo = new EmployeeDemo();
     employeeDemo.RunEmployeeDemo();
 }
+*/
+
+// ProductDemo();
+
+/*
+static void ProductDemo()
+{
+    Console.Write("How many Products you want to Manage? ");
+    int productCount;
+    while (!int.TryParse(Console.ReadLine(), out productCount) || productCount <= 0)
+    {
+        Console.WriteLine("Please Enter a Valid Positive Integer.");
+        Console.Write("How many Products do you want to Manage? ");
+    }
+
+    List<Product> products = new List<Product>();
+
+    // Input product details
+    for (int i = 0; i < productCount; i++)
+    {
+        Console.WriteLine($"\nEnter Details for Product #{i + 1}:");
+        Console.Write("Product Name: ");
+        string name = Console.ReadLine();
+
+        double price;
+        while (true)
+        {
+            Console.Write("Product Price: ");
+            if (double.TryParse(Console.ReadLine(), out price) && price >= 0)
+                break;
+            Console.WriteLine("Invalid price. Please enter a non-negative number.");
+        }
+
+        int quantity;
+        while (true)
+        {
+            Console.Write("Product Quantity: ");
+            if (int.TryParse(Console.ReadLine(), out quantity) && quantity >= 0)
+                break;
+            Console.WriteLine("Invalid Quantity. Please Enter a Non-Negative Integer.");
+        }
+
+        products.Add(new Product(name, price, quantity));
+    }
+
+    while (true)
+    {
+        Console.WriteLine("\n--- Product List ---");
+        for (int i = 0; i < products.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {products[i].ProductName}");
+        }
+        Console.WriteLine($"{products.Count + 1}. Exit");
+
+        Console.Write("Select a Product to Perform Operations: ");
+        if (!int.TryParse(Console.ReadLine(), out int selected) || selected < 1 || selected > products.Count + 1)
+        {
+            Console.WriteLine("Invalid Selection. Try again.");
+            continue;
+        }
+        if (selected == products.Count + 1)
+        {
+            Console.WriteLine("Exiting...");
+            break;
+        }
+
+        Product product = products[selected - 1];
+
+        while (true)
+        {
+            Console.WriteLine($"\n--- Operations for {product.ProductName} ---");
+            Console.WriteLine("1. Display Product Details");
+            Console.WriteLine("2. Calculate Total Price");
+            Console.WriteLine("3. Apply Discount");
+            Console.WriteLine("4. Check Stock Availability");
+            Console.WriteLine("5. Restock Product");
+            Console.WriteLine("6. Sell Product");
+            Console.WriteLine("7. Update Product Price");
+            Console.WriteLine("8. Back to Product List");
+            Console.Write("Enter your Choice: ");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    product.DisplayProductDetails();
+                    break;
+                case "2":
+                    Console.WriteLine($"Total Price: {product.CalculateTotalPrice()}");
+                    break;
+                case "3":
+                    Console.Write("Enter Discount Percentage: ");
+                    if (double.TryParse(Console.ReadLine(), out double discount))
+                    {
+                        Console.WriteLine($"Price after {discount}% Discount: {product.ApplyDiscount(discount)}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Input.");
+                    }
+                    break;
+                case "4":
+                    Console.WriteLine($"Is the product in stock? {(product.IsInStock() ? "Yes" : "No")}");
+                    break;
+                case "5":
+                    Console.Write("Enter Quantity to Re-stock: ");
+                    if (int.TryParse(Console.ReadLine(), out int restockQty))
+                    {
+                        product.Restock(restockQty);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Input.");
+                    }
+                    break;
+                case "6":
+                    Console.Write("Enter Quantity to Sell: ");
+                    if (int.TryParse(Console.ReadLine(), out int sellQty))
+                    {
+                        product.Sell(sellQty);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input.");
+                    }
+                    break;
+                case "7":
+                    Console.Write("Enter New Price: ");
+                    if (double.TryParse(Console.ReadLine(), out double newPrice))
+                    {
+                        product.UpdatePrice(newPrice);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input.");
+                    }
+                    break;
+                case "8":
+                    // Go back to product list
+                    goto EndProductMenu;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+        }
+    EndProductMenu:;
+    }
+}
+*/
+
+// PersonDetailsDemo();
+
+/*
+static void PersonDetailsDemo()
+{
+    // Create and set details directly (no user input)
+    PersonDetails person = new PersonDetails();
+    person.UpdatePersonDetails(
+        name: "John Doe",
+        age: 30,
+        address: "123 Main Street, Whitefield",
+        phoneNumber: "555-1234",
+        email: "doe.john@example.com",
+        occupation: "Data Scientist"
+    );
+
+    Console.WriteLine("=== Person Details ===");
+    person.DisplayPersonDetails();
+}
+*/
+
+// SingleInh();
+
+/*
+static void SingleInh()
+{
+    SingleInh employeee = new SingleInh();
+    Console.WriteLine("Enter Employee ID: ");
+    employeee.EmployeeID = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter Employee Name: ");
+    employeee.Name = Console.ReadLine();
+    Console.WriteLine("Enter Employee Age: ");
+    employeee.Age = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter Employee Address: ");
+    employeee.Address = Console.ReadLine();
+    Console.WriteLine("Enter Employee Phone No.: ");
+    employeee.PhoneNumber = Console.ReadLine();
+    Console.WriteLine("Enter Employee Email: ");
+    employeee.Email = Console.ReadLine();
+    Console.WriteLine("Enter Employee Occupation: ");
+    employeee.Occupation = Console.ReadLine();
+    Console.WriteLine("Enter Employee Department: ");
+    employeee.Department = Console.ReadLine();
+    
+    // employeee.DisplayPersonDetails();
+    employeee.DisplayEmployeeDetails();
+}
+*/
+
+// MultiLInh();
+
