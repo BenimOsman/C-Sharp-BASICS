@@ -632,5 +632,49 @@ static void SingleInh()
 }
 */
 
-// MultiLInh();
+// MultiLInh();         ---     H.W
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        MultiLInh();
+    }
+    static void MultiLInh()
+    {
+        MultiInh employee = new MultiInh();
+
+        Console.WriteLine("Enter Employee ID: ");
+        employee.EmployeeID = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Enter Employee Name: ");
+        employee.Name = Console.ReadLine();
+
+        Console.WriteLine("Enter Employee Age: ");
+        employee.Age = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Enter Employee Address: ");
+        employee.Address = Console.ReadLine();
+
+        Console.WriteLine("Enter Employee Phone No.: ");
+        employee.PhoneNumber = Console.ReadLine();
+
+        Console.WriteLine("Enter Employee Email: ");
+        employee.Email = Console.ReadLine();
+
+        Console.WriteLine("Enter Employee Occupation: ");
+        employee.Occupation = Console.ReadLine();
+
+        Console.WriteLine("Enter Employee Department: ");
+        employee.Department = Console.ReadLine();
+
+        Console.WriteLine("Enter Project Name: ");
+        employee.ProjectName = Console.ReadLine();
+
+        Console.WriteLine("Enter Role in Project: ");
+        employee.Role = Console.ReadLine();
+
+        employee.DisplayCompleteDetails();
+    }
+}
 
