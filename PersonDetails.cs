@@ -9,7 +9,7 @@ namespace BASIC
     internal class PersonDetails
     {
         public PersonDetails() { }
-        
+
         //Auto Implemented Properties
         public string Name { get; set; }
         public int Age { get; set; }
