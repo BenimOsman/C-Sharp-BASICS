@@ -13,3 +13,5 @@
 * ToString
 * GET & SET Accessors
 * Auto-Implement Properties
+* Inheritance
+* Collections & Generics
