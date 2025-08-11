@@ -1,6 +1,6 @@
 # BASIC
 
-### DEMO'S OF C# Project
+### DEMO'S OF C# Project (DEVELOPMENT PART)
 
 ##### TOPICS COVERED:
 
