@@ -1108,8 +1108,9 @@ namespace BASIC
         }
     }
 }
-*/ 
+*/
 
+/*
 Console.WriteLine("Delegates Example!!!");
 
 CalcDelegate calcDelegate;
@@ -1128,7 +1129,149 @@ calcDelegate(5, 10); // This will call both Sum and Multiply methods
 delegatesDemo.Subscribe(message => Console.WriteLine($"Received Message: {message}"));
 delegatesDemo.TriggerEvent("This is a test message after subsribing");
 delegatesDemo.Unsubscribe(message => Console.WriteLine($"Received Message: {message}"));
-
+*/
 
 // HW - Work on the Collections
-// Work on the Generic Collections i.e. ArrayList, Stack, Queue, Dictionary, HashSet
+// Work on the Generic Collections i.e. Dictionary, Stack, Queue, ArrayList
+
+// 1. Generic Dictionary
+// 2. Generic Stack
+// 3. Generic Queue
+
+/*
+namespace BASIC
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=====GENERIC COLLECTION DEMO=====");
+
+            bool exit = false;
+
+            while (!exit)
+            {
+                Console.WriteLine("\nSelect Option:");
+                Console.WriteLine("1. Generic Dictionary");
+                Console.WriteLine("2. Generic Stack");
+                Console.WriteLine("3. Generic Queue");
+                Console.WriteLine("4. Exit");
+                Console.Write("Enter your Choice (1-4): ");
+
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        RunGenericDictionaryDemo();
+                        break;
+                    case "2":
+                        RunGenericStackDemo();
+                        break;
+                    case "3":
+                        RunGenericQueueDemo();
+                        break;
+                    case "4":
+                        exit = true;
+                        Console.WriteLine("Exiting Program...");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice. Try again.");
+                        break;
+                }
+            }
+
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey();
+        }
+
+        static void RunGenericDictionaryDemo()
+        {
+            Console.WriteLine("\n=====Generic Dictionary Demo=====");
+
+            GenericDictionary<int, string> dictionary = new GenericDictionary<int, string>();
+
+            Console.Write("How many Entries you want to Add? ");
+            if (int.TryParse(Console.ReadLine(), out int count))
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    Console.Write($"Enter Key {i + 1} (int): ");
+                    int key = Convert.ToInt32(Console.ReadLine());
+
+                    Console.Write($"Enter Value {i + 1} (string): ");
+                    string value = Console.ReadLine();
+
+                    dictionary.Add(key, value);
+                }
+            }
+
+            dictionary.DisplayDict();
+
+            Console.Write("\nEnter Key to Remove: ");
+            if (int.TryParse(Console.ReadLine(), out int removeKey))
+            {
+                dictionary.Remove(removeKey);
+            }
+
+            dictionary.DisplayDict();
+        }
+
+        static void RunGenericStackDemo()
+        {
+            Console.WriteLine("\n=====Generic Stack Demo=====");
+
+            GenericStack<string> stack = new GenericStack<string>();
+
+            Console.Write("How many Items you want to Push to the Stack? ");
+            if (int.TryParse(Console.ReadLine(), out int count))
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    Console.Write($"Enter Item {i + 1}: ");
+                    string item = Console.ReadLine();
+                    stack.PushItem(item);
+                }
+            }
+
+            stack.DisplayStack();
+
+            Console.Write("\nDo you want to Pop an Item? (Y/N): ");
+            string popChoice = Console.ReadLine().ToLower();
+            if (popChoice == "y")
+            {
+                stack.PopItem();
+                stack.DisplayStack();
+            }
+        }
+
+        static void RunGenericQueueDemo()
+        {
+            Console.WriteLine("\n=====Generic Queue Demo=====");
+
+            GenericQueue<string> queue = new GenericQueue<string>();
+
+            Console.Write("How many Items you want to Enqueue? ");
+            if (int.TryParse(Console.ReadLine(), out int count))
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    Console.Write($"Enter Item {i + 1}: ");
+                    string item = Console.ReadLine();
+                    queue.EnqueueItem(item);
+                }
+            }
+
+            queue.DisplayQueue();
+
+            Console.Write("\nDo you want to Dequeue an Item? (Y/N): ");
+            string dequeueChoice = Console.ReadLine().ToLower();
+            if (dequeueChoice == "y")
+            {
+                queue.DequeueItem();
+                queue.DisplayQueue();
+            }
+        }
+    }
+}
+*/
