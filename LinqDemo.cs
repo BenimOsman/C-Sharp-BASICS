@@ -21,14 +21,15 @@ namespace BASIC
         ArrayList arrayList = new ArrayList
         {
             101, 122, 365, 14, 95, 86, 57, 78, 89, 10,
-            "Syed Faisal", "Syed Aaqib", "Syed Zeeshan \n"
+            "Jacob", "Maharaja", "Evie\n"
         };
 
         // LINQ Queries
 
         public void BasicLinqery()
         {
-            var result = from no in numbers select no;
+            var result = numbers.Take(5);
+
 
             foreach (var n in result)
             {
@@ -39,8 +40,8 @@ namespace BASIC
 
         public void UsingwhereLinq()
         {
-            Console.WriteLine("Using WHERE Clause in LINQ");
-            var result = from no in numbers
+            Console.WriteLine("Using WHERE Clause in LINQ:");
+            var result = from no in numbers.Take(5)
                          where no > 70
                          select no;
 
@@ -48,6 +49,7 @@ namespace BASIC
             {
                 Console.Write(" " + n);
             }
+            Console.WriteLine();
         }
 
         public void UsingOrderByLinq()
@@ -122,7 +124,7 @@ namespace BASIC
 
             var takeresult = numbers.TakeWhile(n => n > 100);
 
-            Console.WriteLine("Using TakeWhile in LINQ:");
+            Console.WriteLine("\nUsing TakeWhile in LINQ:");
             foreach (var n in takeresult)
             {
                 Console.Write(n + " ");

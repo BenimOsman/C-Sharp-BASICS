@@ -1517,7 +1517,7 @@ namespace BASIC
 
 // Console.WriteLine("Hello, World! Welcome to Advance C#.Net Topics");
 
-LinqDemo LinqDemo = new LinqDemo();
+LinqDemo LinqDemo = new LinqDemo();                                         // Create an instance of LinqDemo class
 
 Console.WriteLine("=== LINQ DEMO ===");
 Console.WriteLine("BASIC QUERY:");
