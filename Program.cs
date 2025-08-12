@@ -1275,3 +1275,263 @@ namespace BASIC
     }
 }
 */
+
+// File Operations
+/*
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello, World! Welcome to File I/O Operations");
+        string filePath = "Book.txt";
+
+        FileClassDemo(filePath);
+        //StreamClassesDemo(filePath);
+        //BinaryClassesDemo("people.dat");
+    }
+
+    static object FileClassDemo(string filePath)
+    {
+        while (true)
+        {
+            Console.WriteLine("\n===== Book App System =====");
+            Console.WriteLine("1. Add New Book");
+            Console.WriteLine("2. View All Books");
+            Console.WriteLine("3. Use StreamWriter/FileReader");
+            Console.WriteLine("4. Exit");
+            Console.Write("Choose an option (1-4): ");
+
+            string? choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    Book.AddBook(filePath);
+                    break;
+                case "2":
+                    Book.ViewBooks(filePath);
+                    break;
+                case "3":
+                    StreamClassesDemo(filePath);
+                    break;
+                case "4":
+                    Environment.Exit(0);
+                    return 0; // Just to satisfy return type
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
+            }
+        }
+    }
+
+    static void StreamClassesDemo(string filePath)
+    {
+        Console.WriteLine("Enter some text to write to the file:");
+        string? userInput = Console.ReadLine();
+
+        FileWriter writer = new FileWriter(filePath);
+        writer.WriteToFile(userInput);
+
+        Console.WriteLine("\nReading from the file:");
+        FileReader reader = new FileReader(filePath);
+        reader.ReadFromFile();
+    }
+}
+*/
+
+// File I/O Operations for Contact Management System
+/*
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello, World! Welcome to File I/O Operations.");
+        string filePath = "Contacts.txt";
+
+        ContactMenu(filePath);
+    }
+
+    static void ContactMenu(string filePath)
+    {
+        while (true)
+        {
+            Console.WriteLine("\n=====Contact Management System=====");
+            Console.WriteLine("1. Add New Contact");
+            Console.WriteLine("2. View All Contacts");
+            Console.WriteLine("3. Search Contact by Name");
+            Console.WriteLine("4. Delete All Contacts");
+            Console.WriteLine("5. Exit");
+            Console.Write("Choose an Option (1-5): ");
+
+            string? choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    Contact.AddContact(filePath);
+                    break;
+                case "2":
+                    Contact.ViewContacts(filePath);
+                    break;
+                case "3":
+                    Contact.SearchContact(filePath);
+                    break;
+                case "4":
+                    Contact.ClearContacts(filePath);
+                    break;
+                case "5":
+                    Console.WriteLine("Exiting the program...");
+                    return;
+                default:
+                    Console.WriteLine("Invalid Option. Please try again.");
+                    break;
+            }
+        }
+    }
+}
+*/
+
+// SIR Example 
+/*
+namespace BASIC
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! Welcome to Advance C#.Net Topics");
+
+            string fileName = "trainees.txt";
+            Trainee trainee = new Trainee();
+
+            Console.WriteLine("Enter Trainee Name:");
+            trainee.Name = Console.ReadLine() ?? string.Empty;
+
+            Console.WriteLine("Enter Trainee Id:");
+            trainee.Id = Console.ReadLine() ?? string.Empty;
+
+            Console.WriteLine("Enter Trainee Course:");
+            trainee.Course = Console.ReadLine() ?? string.Empty;
+
+            // Save to file
+            trainee.AddTrainee(trainee, fileName);
+
+            Console.WriteLine("\nSaved Successfully!\nNow Reading From File...\n");
+
+            // Read from file
+            trainee.ReadTrainees(fileName);
+        }
+    }
+}
+*/
+
+// Using file & stream -> For file refer Library.cs & for stream refer LibraryItem.cs
+/* 
+// using System.IO;                                                                             // Uncomment if using streams
+namespace BASIC
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Define a path where the library data will be stored
+            string filePath = "library_data.txt";
+
+            RunLibraryManager(filePath);
+        }
+
+        static void RunLibraryManager(string filePath)
+        {
+            while (true)
+            {
+                Console.WriteLine("\n--- Library System ---");
+                Console.WriteLine("1. Add New Item");
+                Console.WriteLine("2. View All Items");
+                Console.WriteLine("3. Exit");
+                Console.Write("Choose an option (1-3): ");
+                string? choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        LibraryItem.AddItem(filePath);
+                        break;
+                    case "2":
+                        LibraryItem.ViewItems(filePath);
+                        break;
+                    case "3":
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please try again.");
+                        break;
+                }
+            }
+        }
+    }
+}
+*/
+
+// CW
+// Product - id, name, price 
+// Use stream for input and output
+// Implement two methods i.e. add product and show products
+
+/*
+namespace BASIC
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string productFile = "products.txt";
+
+            while (true)
+            {
+                Console.WriteLine("\n--- Product Manager ---");
+                Console.WriteLine("1. Add Product");
+                Console.WriteLine("2. Show Products");
+                Console.WriteLine("3. Exit");
+                Console.Write("Choose option (1-3): ");
+                string? choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        Products.AddProduct(productFile);
+                        break;
+                    case "2":
+                        Products.ShowProduct(productFile);
+                        break;
+                    case "3":
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice, try again.");
+                        break;
+                }
+            }
+        }
+    }
+}
+*/
+
+// Console.WriteLine("Hello, World! Welcome to Advance C#.Net Topics");
+
+LinqDemo LinqDemo = new LinqDemo();
+
+Console.WriteLine("=== LINQ DEMO ===");
+Console.WriteLine("BASIC QUERY:");
+LinqDemo.BasicLinqery();
+Console.WriteLine();
+LinqDemo.UsingwhereLinq();
+Console.WriteLine();
+LinqDemo.UsingOrderByLinq();
+Console.WriteLine();
+LinqDemo.LinqOfTypeArraylist();
+Console.WriteLine();
+LinqDemo.OrderByThenByLinq();   
+Console.WriteLine();
+LinqDemo.GroupByLinq();
+Console.WriteLine();
+LinqDemo.TakeLinq();
+Console.WriteLine();
