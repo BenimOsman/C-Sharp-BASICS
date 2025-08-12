@@ -15,3 +15,6 @@
 * Auto-Implement Properties
 * Inheritance
 * Collections & Generics
+* File IO Operations
+* Streams
+* LINQ 
