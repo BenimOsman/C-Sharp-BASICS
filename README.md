@@ -1,6 +1,6 @@
 # BASICS OF C#
 
-#### TOPICS COVERED:
+### TOPICS COVERED (DAY 1-6):
 
 # C# Learning Repository  
 
