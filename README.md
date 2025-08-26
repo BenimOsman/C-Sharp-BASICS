@@ -11,31 +11,31 @@ It covers the fundamental to advanced concepts of the language, along with hands
 
 ## 📚 Topics Covered  
 
-### 🔹 Basics
+### Basics
 - Fundamentals of C#
 - Data Types
 - Loops (for, while, do-while, foreach)
 
-### 🔹 Object-Oriented Programming (OOPs)
+### Object-Oriented Programming (OOPs)
 - Pillars of OOPs (Encapsulation, Abstraction, Inheritance, Polymorphism)
 - Inheritance
 - Access Modifiers
 - Auto-Implemented Properties
 - Interfaces (Multiple Inheritance)
 
-### 🔹 Collections & Generics
+### Collections & Generics
 - Generic Collections
 - Stack
 - Queue
 - List
 - Dictionary
 
-### 🔹 Advanced Concepts
+### Advanced Concepts
 - Delegates
 - Events
 - LINQ Operations
 
-### 🔹 File Handling
+### File Handling
 - StreamWriter
 - StreamReader  
 
