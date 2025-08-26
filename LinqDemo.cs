@@ -15,7 +15,10 @@ namespace BASIC
         {
             new Trainee("Z", "T001", "Developer"),
             new Trainee("Y", "T002", "Manager"),
-            new Trainee("X", "T003", "Engineer")
+            new Trainee("X", "T003", "Engineer"),
+            new Trainee("A", "T004", "Designer"),
+            new Trainee("B", "T005", "Analyst"),
+            new Trainee("C", "T006", "Tester"),
         };
 
         ArrayList arrayList = new ArrayList
@@ -26,6 +29,7 @@ namespace BASIC
 
         // LINQ Queries
 
+        // It is displaying the first 5 numbers
         public void BasicLinqery()
         {
             var result = numbers.Take(5);
@@ -33,7 +37,7 @@ namespace BASIC
 
             foreach (var n in result)
             {
-                Console.Write(n + "  ");
+                Console.Write(n + "  "); 
             }
             Console.WriteLine();
         }
@@ -130,6 +134,41 @@ namespace BASIC
                 Console.Write(n + " ");
             }
             Console.WriteLine();
+        }
+
+        public void LinqFirstOrDefault()
+        {
+            Console.WriteLine("Using FirstOrDefault in LINQ:");
+            var firstNumber = numbers.First(n => n > 100);
+            Console.WriteLine($"First Number > 100: {firstNumber}");
+
+            var firstTrainee = trainees.FirstOrDefault(t => t.Name == "F");
+            if (firstTrainee != null)
+            {
+                Console.WriteLine($"First Trainee: Name: {firstTrainee.Name}, Id: {firstTrainee.Id}, Course: {firstTrainee.Course}");
+            }
+            else
+            {
+                Console.WriteLine("No trainee found with the specified condition.");
+            }
+        }
+
+        public void SingleorSingleDefault()
+        {
+            Console.WriteLine("Using Single and SingleOrDefault in LINQ:");
+            var stn = trainees.Single(t => t.Id == "T003");
+
+            Console.WriteLine($"Single Trainee: Name: {stn.Name}, Id: {stn.Id}, Course: {stn.Course}");
+
+            var tn = trainees.SingleOrDefault(t => t.Id == "T009");
+            if (tn != null)                                     // Exception will be thrown if no element is found
+            {
+                Console.WriteLine($"SingleOrDefault Trainee: Name: {tn.Name}, Id: {tn.Id}, Course: {tn.Course}");
+            }
+            else
+            {
+                Console.WriteLine("No trainee found with the specified condition.");
+            }
         }
     }
 }

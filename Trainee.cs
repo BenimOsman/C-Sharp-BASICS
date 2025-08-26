@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Globalization;                                 // Needed for JSON Serialization
 
 namespace BASIC
 {
@@ -24,7 +26,18 @@ namespace BASIC
             Console.WriteLine($"Name: {Name}, Id: {Id}, Course: {Course}");
         }
 
-        // write a method to  write Trainee details to a  file using stream writer.
+        public void JsonSerializeTrainee(Trainee trainee)
+        {
+            string jsonString = JsonSerializer.Serialize(trainee);
+            Console.WriteLine($"Serialize Trainee: {jsonString}");
+
+            Trainee trn = JsonSerializer.Deserialize<Trainee>(jsonString);
+
+            Console.WriteLine($"Deserialized Trainee: Name: {trn.Name}, Id: {trn.Id}");
+        }
+        // For this provide Program.cs file outputting intial andfinal string.
+
+        // Write a method to  write Trainee details to a  file using stream writer.
 
         public void AddTrainee(Trainee trainee, string filepath)
         {

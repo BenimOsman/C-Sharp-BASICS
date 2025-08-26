@@ -1,5 +1,6 @@
 ﻿using BASIC;
 using System;
+using System.Threading.Tasks;
 
 // Console.WriteLine("Hello, World!");
 // Console.WriteLine("Welcome to C# .NET Progamming Language.");
@@ -1515,6 +1516,7 @@ namespace BASIC
 }
 */
 
+/*
 // Console.WriteLine("Hello, World! Welcome to Advance C#.Net Topics");
 
 LinqDemo LinqDemo = new LinqDemo();                                         // Create an instance of LinqDemo class
@@ -1535,3 +1537,252 @@ LinqDemo.GroupByLinq();
 Console.WriteLine();
 LinqDemo.TakeLinq();
 Console.WriteLine();
+LinqDemo.LinqFirstOrDefault();
+Console.WriteLine();
+LinqDemo.SingleorSingleDefault();
+Console.WriteLine();
+*/
+
+/*
+// Crate a product class: Id int, Name sring, Product Price double , ManDate date is DateTime
+namespace BASIC
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ProdLinq prodLink = new ProdLinq();
+
+            // Display all products
+            prodLink.DisplayAllProducts();
+            Console.WriteLine();
+
+            // List of products
+            prodLink.ListOfProducts();
+            Console.WriteLine();
+
+            // Basic LINQ query to display first 5 products
+            prodLink.BasicLinqery();
+            Console.WriteLine();
+
+            // Display products with price greater than 10000
+            prodLink.UsingWhereLinq();
+            Console.WriteLine();
+
+            // Displaying products ordered by name
+            prodLink.UsingOrderByLinq();
+            Console.WriteLine();
+
+            // Displaying products grouped by manufacturing month
+            prodLink.OrderByThenByLinq();
+            Console.WriteLine();
+
+            // Displaying products grouped by month
+            prodLink.GroupByLinq();
+            Console.WriteLine();
+
+            // Displaying first 5 products using Take   
+            prodLink.TakeLinq();
+            Console.WriteLine();
+
+            // Displaying first product or default
+            prodLink.LinqFirstOrDefault();
+            Console.WriteLine();
+
+            // Displaying single or single default product
+            prodLink.SingleOrSingleDefault();
+            Console.WriteLine();
+
+            // Display all products based on price
+            prodLink.OrderByName();
+            Console.WriteLine();
+
+            prodLink.GroupByMonth();
+            Console.WriteLine();
+
+            // Filter products by price greater than 10000
+            prodLink.FilterByPrice(10000);
+        }
+    }
+}
+*/
+
+/*
+// Only for GetNumbers
+public static class A
+{
+    public static IEnumerable<int> GetNumbers(int start, int count)
+    {
+        for (int i = start; i < start + count; i++)
+        {
+            yield return i;
+        }
+    }
+}
+*/
+
+/*
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        // Start Method1 (async) but don't await yet
+        Task asyncTask = Method1();
+
+        // Run Method2 synchronously
+        Method2();
+
+        // Wait for Method1 to complete
+        await asyncTask;
+
+        Console.WriteLine("Main method complete.");
+    }
+
+    // Asynchronous method
+    public static async Task Method1()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine($"[Async] Method1 - {i}");
+            await Task.Delay(200);                                  // Non-blocking delay
+        }
+    }
+
+    // Synchronous method
+    public static void Method2()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine($"[Sync ] Method2 - {i}");
+            Task.Delay(150).Wait();                                 // Blocking delay
+        }
+    }
+}
+*/
+
+/*
+class Program
+{
+    static async Task Main()
+    {
+        Console.WriteLine("Synchronous Example Started");
+
+        DoWork();
+
+        Console.WriteLine("Synchronous Example Finished");
+
+        Console.WriteLine("Asynchronous Example Started");
+
+        Task workTask = DoWorkAsync();
+
+        Console.WriteLine("Doing other work while waiting...");
+
+        await workTask;                                             // Await the async task
+
+        Console.WriteLine("Asynchronous Example Finished");
+    }
+
+    static void DoWork()
+    {
+        Console.WriteLine("Work started...");
+        Thread.Sleep(3000);                                         // Simulate 3 seconds of blocking work
+        Console.WriteLine("Work finished.");
+    }
+
+    static async Task DoWorkAsync()
+    {
+        Console.WriteLine("Work started...");
+        await Task.Delay(3000);                                     // Simulate 3 seconds non-blocking wait
+        Console.WriteLine("Work finished.");
+    }
+}
+*/
+
+/*
+namespace BASIC
+{
+    class Program
+    {
+        static async Task Main()
+        {
+            Console.WriteLine("Synchronous Number Generation:");
+            SynchronousGetNumbers();
+
+            Console.WriteLine("\nAsynchronous Number Generation:");
+            await AsyncGetNumbers();
+        }
+
+        static void SynchronousGetNumbers()
+        {
+            Console.WriteLine($"Start: {DateTime.Now.ToLongTimeString()}");
+
+            var numbers = AsyncStream.GetNumbers(1, 10);
+
+            foreach (var number in numbers)
+            {
+                Console.WriteLine($"Number: {number}");
+            }
+
+            Console.WriteLine($"End: {DateTime.Now.ToLongTimeString()}");
+        }
+
+        static async Task AsyncGetNumbers()
+        {
+            Console.WriteLine($"Start: {DateTime.Now.ToLongTimeString()}");
+
+            await foreach (var number in AsyncStream.GetNumbersAsync(1, 10))
+            {
+                Console.WriteLine($"Number: {number}");
+            }
+
+            Console.WriteLine($"End: {DateTime.Now.ToLongTimeString()}");
+        }
+    }
+}
+*/
+
+using System;
+using System.Threading.Tasks;
+
+namespace BASIC
+{
+    class Program
+    {
+        static async Task Main()
+        {
+            Trainee trainee = new Trainee("Alice Johnson", "T003", "Data Structures");
+            Console.WriteLine("Initial Trainee Object:");
+            trainee.DisplayInfo();
+
+            Console.WriteLine("\n--- JSON Serialization ---");
+            trainee.JsonSerializeTrainee(trainee);
+
+            Console.WriteLine("\n--- Synchronous GetNumbers ---");
+            SyncGetNumbers();
+
+            Console.WriteLine("\n--- Asynchronous GetNumbers ---");
+            await AsyncGetNumbers();                                                    // Cleaner than .Wait()
+        }
+
+        static void SyncGetNumbers()
+        {
+            Console.WriteLine($"Start: {DateTime.Now.ToLongTimeString()}");
+            var numbers = AsyncStream.GetNumbers(1, 10);                                // Correct method name
+            foreach (var number in numbers)
+            {
+                Console.WriteLine($"[Sync] Number: {number}");
+            }
+            Console.WriteLine($"End: {DateTime.Now.ToLongTimeString()}");
+        }
+
+        static async Task AsyncGetNumbers()
+        {
+            Console.WriteLine($"Start: {DateTime.Now.ToLongTimeString()}");
+            await foreach (var number in AsyncStream.GetNumbersAsync(1, 11))
+            {
+                Console.WriteLine($"[Async] Number: {number}");
+            }
+            Console.WriteLine($"End: {DateTime.Now.ToLongTimeString()}");
+        }
+    }
+}
