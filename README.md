@@ -1,8 +1,8 @@
 # BASICS OF C#
 
-### TOPICS COVERED (DAY 1-6):
-
 # C# Learning Repository  
+
+### TOPICS COVERED (DAY 1-6):
 
 This repository contains my practice and learning journey in **C# programming**.  
 It covers the fundamental to advanced concepts of the language, along with hands-on examples.  
